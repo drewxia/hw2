@@ -1,0 +1,42 @@
+Quiz 2
+Andrew Xia
+
+BEGIN
+--------------------------------------------------------------------
+Q1: How many microcontrollers in the mbed LPC1768 board?
+There are three microcontrollers:
+1.	LPC1768, MCU
+2.	Ethernet Controller
+3.	MBED-IF, which handles the JTAG over USB
+
+
+--------------------------------------------------------------------
+Q2: What is the size (in GB) of the Flash Memory ("USB Dsik") of the LPC1768?
+It is 1.96MB, or 0.196GB.
+
+
+
+--------------------------------------------------------------------
+Q3: Name 3 functions (or features) that mbed USB cable provided:
+
+1.  The USB cable provides power.
+2.  Provides download of .BIN file to the MBED.
+3.  Serves as a link for debug over JTAG or SWD
+
+
+--------------------------------------------------------------------
+Q4: What is the name of the Ethernet PHY chip in the mbed board (LPC1768)?
+
+Texas Instruments, Ethenet Transceiver DP83848J
+
+
+
+--------------------------------------------------------------------
+Q5: Reference LPC17xx_UM10360.pdf (Chapter 2)
+    What are the GPIO address window?
+
+GPIO is mapped to address range:  0x2009 C000 thru 0x2009 FFFF
+
+
+
+END
