@@ -1,0 +1,89 @@
+Quiz 1
+Andrew Xia
+
+
+BEGIN
+--------------------------------------------------------------------
+Q1: Is there any compile error with the following code (if any)?
+
+	unsigned int Arr[16];
+	3[Arr] = 7; 
+ 
+Explain:
+Yes, a syntax error exists in the line:  3[Arr]=7 
+3 is not a valid array.  To access an element in the array, use Arr[index].
+
+
+--------------------------------------------------------------------
+Q2: What is the difference between the following 3 statements? 
+
+const int * px; 	// px is a pointer to a constant integer
+int const * px; 	// same as the previous line
+int * const px; 	// px is a constant, pointing to a constant integer
+
+Is there any compile error for the following cases?
+case1: 
+int x = 13; 
+const int * px; 
+px = & x; 
+
+case 2: 
+int x = 13; 
+int const * px; 
+px = & x; 
+
+case 3: 
+int x = 13; 
+int * const px; 
+px = & x; 
+
+Explain:
+// Case 1:  No, there is no error, px is assigned to point to x.
+// Case 2:  No, there is no error, px is assigned to point to x.
+// Case 3:  Yes, there is an error, px is declared as a constant pointer,
+// but the code is trying to change it.  This will be a compiler error.
+
+
+
+
+--------------------------------------------------------------------
+Q3: Write a function to set or clear ith bit of a 32-bit register. 
+	Where ith (0-based) := {0, 1, 2, …, 31 } 
+void reg_set(volatile unsigned int * pReg, int ith) 
+{
+   *pReg = *pReg | (1 << ith);  
+   // left shift 1 to the ith bit position, then bitwise Or.
+} 
+
+void reg_clear(volatile unsigned int * pReg, int ith) 
+{ 
+   *pReg = *pReg & (~(1 << ith));
+   // left shift 1 to the ith bit position, bitwise invert, then bitwise And.
+} 
+
+--------------------------------------------------------------------
+Q4: Write a swap function in C.
+void swap(unsigned int * px, unsigned int *py) { 
+
+// This function swaps integer pointed to by px and py
+
+   unsigned int temp;
+   
+   temp = *px;
+   *px = *py;
+   *py = temp;
+
+} 
+
+--------------------------------------------------------------------
+Q5:	What is the output of the following code? (Given: sizeof(unsigned int) is 4) Page 34 
+
+unsigned int Arr[16]; 
+unsigned int a0 = (unsigned int) &Arr[0]; 
+unsigned int a3 = (unsigned int) &Arr[3]; 
+printf(“%d\n”, a3 – a0); 
+
+ The size of each element in the array is 4 bytes as declared.  Variable a0 is assigned the address of array element at Arr[0], which is the lowest address in the array.  Variable a3 is assigned the address of array element at Arr[3].  Thus, a3 - a0 is the offset in address between Arr[3] and Arr[0],  which is 4 multiplied by the size of each element, that is 4 bytes, the output of the code is 4 x 4 bytes = 16.
+
+
+END
